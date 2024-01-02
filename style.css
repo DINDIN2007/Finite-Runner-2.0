@@ -1,0 +1,141 @@
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  background-color: #000000;
+  
+}
+
+/*Canvas Style*/
+canvas {
+  margin:-10px;
+  image-rendering: pixelated;
+  z-index: 999;
+}
+
+.shakeCanvas {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+/*Display Manual Controls*/
+#controls {
+  z-index: 1000;
+  width:200px;
+  height:64px;
+  position:fixed;
+  bottom:0;
+  padding-bottom:10px;
+}
+
+#controls input {
+  width:50px;
+  height:50px;
+  /*Rendering Image*/
+  background-size:cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  background-color: transparent; 
+  border:none;
+  /*Borders*/
+  border-radius:20px;
+  /*Avoids select*/
+  user-select: none;
+}
+
+#controls input:click {
+  filter:brightness(50%);
+}
+
+#right {background-image:url(Assets/Mobile_Controls/Right.png);}
+#left {background-image:url(Assets/Mobile_Controls/Left.png);}
+#up {background-image:url(Assets/Mobile_Controls/Up.png);}
+
+/*Screen Shaking Animation*/
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*Screen Overlay Information like score*/
+#container {
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+
+#score {
+  /*Position*/
+  position:fixed;
+  right:20px;
+  top:5px;
+  /*Styling*/
+  z-index: 2000;
+  color: white;
+  font-family: monospace;
+  font-size:1.5em;
+  text-align: right;
+}
+
+/*Start Page*/
+#opening {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index:3000;
+  background: url(Assets/TitlePage.png) no-repeat center center fixed;
+  background-size: auto 100%;
+  position:absolute;
+  image-rendering: pixelated;
+}
+
+#opening button {
+  /*Button position*/
+  position:absolute;
+  top: 56%;
+  left: 43.75%;
+  right:56.25%;
+  /*Button dimensions*/
+  width: 10%;
+  height: 7%;
+  color: #fff;
+  text-decoration: none;
+  background-color: #dbc114;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  /*Button glow and backdrop*/
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  box-shadow: 0px 5px 0px #b69b16, 0px 5px 30px #b6b016;
+  -webkit-box-shadow: 0px 5px 0px #b6b016, 0px 5px 30px #b6b016;
+  -moz-box-shadow: 0px 5px 0px #b69b16, 0px 5px 30px #b69b16;
+  margin: 20px auto;
+  text-align: center;
+  /*Button animation*/
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -ms-transition: all .4s ease;
+  -o-transition: all .4s ease;
+}
+
+button:active {
+  -webkit-box-shadow: 0px 3px 0px #9a8709, 0px 9px 25px #9a8709;
+  -moz-box-shadow: 0px 3px 0px #9a8709, 0px 9px 25px #9a8709;
+  box-shadow: 0px 3px 0px #9a8709, 0px 9px 25px #9a8709;
+}
+
